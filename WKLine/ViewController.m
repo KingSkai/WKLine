@@ -7,6 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "WK_KLineGroupModel.h"
+#import "NetWorking.h"
+#import "WKLineViewController.h"
+#import "Masonry.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -17,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (IBAction)presentAction:(id)sender {
+    
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    appdelegate.isEable = YES;
+    WKLineViewController *stockChartVC = [WKLineViewController new];
+    stockChartVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:stockChartVC animated:YES completion:nil];
+    
 }
 
 
